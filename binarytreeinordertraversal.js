@@ -59,14 +59,13 @@ let stack = []
 let curr = tree.root 
 
 while (curr || stack.length > 0) {
-    if (curr) {
-        stack.push(node.val)
+    while (curr) {
+        stack.push(curr)
         curr = curr.left
-    } else {
-        curr = stack.pop()
-        result.push(curr.val)
-        curr = curr.right
     }
+    curr = stack.pop()
+    result.push(curr.val)
+    curr = curr.right
 }
 
 return result
